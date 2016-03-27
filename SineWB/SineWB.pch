@@ -1,0 +1,26 @@
+//
+//  SineWB.pch
+//  SineWB
+//
+//  Created by scuplt on 16-3-27.
+//  Copyright (c) 2016年 Scuplt0413. All rights reserved.
+//
+
+#ifndef SineWB_SineWB_pch
+#define SineWB_SineWB_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+//写代码
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]>=7.0)
+#define NSLogs(...)  NSLog(__VA_ARGS__)
+#endif
+
+
+#endif
