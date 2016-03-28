@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1F0CD766-745F-4E0C-AE7B-7DFC6035D270</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SineWB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>24C4C18556EC5636BC79708ABB66ADCAE484C514</key>
+		<string>https://github.com/SendSi/SineWB.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SineWB.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>24C4C18556EC5636BC79708ABB66ADCAE484C514</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/SendSi/SineWB.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>24C4C18556EC5636BC79708ABB66ADCAE484C514</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>24C4C18556EC5636BC79708ABB66ADCAE484C514</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SineWB</string>
+		</dict>
+	</array>
+</dict>
+</plist>

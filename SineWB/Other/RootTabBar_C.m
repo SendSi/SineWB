@@ -14,7 +14,7 @@
 #import "UIImage+StringImageNamed.h"
 #import "myTabBar_V.h"
 
-@interface RootTabBar_C()
+@interface RootTabBar_C()<myTabBar_V_Delegate>
 @property (nonatomic ,strong) myTabBar_V *myTabBar_Vs;
 @end
 @implementation RootTabBar_C
@@ -23,16 +23,21 @@
     [super viewDidLoad ];
      [self setUpMyTabBar];
     [self setUpAllChildController];
-   
-}
+   }
 /**  mytabbar 初始化   */
 -(void)setUpMyTabBar{
     myTabBar_V *my_V=[[myTabBar_V alloc] init];
-    my_V.backgroundColor=[UIColor redColor];
+   // my_V.backgroundColor=[UIColor redColor];
     my_V.frame=self.tabBar.bounds;
     [self.tabBar addSubview:my_V];
     self.myTabBar_Vs=my_V;
+    my_V.delegate=self;
 }
+-(void)myTabBar_Delegate:(myTabBar_V *)myTabBar and_From:(int)froms and_To:(int)tos{
+    self.selectedIndex=tos;
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     for (UIView *child in self.tabBar.subviews) {
@@ -41,6 +46,8 @@
         }
     }
 }
+
+
 
 -(void)setUpAllChildController{
     RootFirstTableView_C *first=[[RootFirstTableView_C alloc] init];
@@ -75,7 +82,7 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:view_C];
     [self addChildViewController:nav];
 
-//添加 tabBar内部的按钮
+//添加 tabBar内部的按钮--->myTabBar_V
     [self.myTabBar_Vs loadViewShow:view_C.tabBarItem];
 }
 

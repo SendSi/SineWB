@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@class myTabBar_V;
+@protocol myTabBar_V_Delegate<NSObject>
+@optional
+-(void)myTabBar_Delegate:(myTabBar_V *)myTabBar and_From:(int) froms and_To:(int )tos;
+
+
+@end
+
+
 /**  改变 tabBar 视图的 ,继承UIView   */
 @interface myTabBar_V : UIView
 
 -(void) loadViewShow:(UITabBarItem *)barItem;
+/* 点击按钮的 代理   */
+@property (weak,nonatomic) id<myTabBar_V_Delegate> delegate;
 
 @end
