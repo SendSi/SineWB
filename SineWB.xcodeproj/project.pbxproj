@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9B51D1CA8058F000980B7 /* myTabBar_V.m */; };
 		13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1DD1CA7BFC2009BEE27 /* RootMeTableView_C.m */; };
 		13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1E11CA7BFFE009BEE27 /* RootDiscoverTableView_C.m */; };
 		13EEB1E51CA7C016009BEE27 /* RootMessageTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1E41CA7C016009BEE27 /* RootMessageTableView_C.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13E9B51C1CA8058F000980B7 /* myTabBar_V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTabBar_V.h; sourceTree = "<group>"; };
+		13E9B51D1CA8058F000980B7 /* myTabBar_V.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTabBar_V.m; sourceTree = "<group>"; };
 		13EEB1DC1CA7BFC2009BEE27 /* RootMeTableView_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootMeTableView_C.h; sourceTree = "<group>"; };
 		13EEB1DD1CA7BFC2009BEE27 /* RootMeTableView_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootMeTableView_C.m; sourceTree = "<group>"; };
 		13EEB1E01CA7BFFE009BEE27 /* RootDiscoverTableView_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootDiscoverTableView_C.h; sourceTree = "<group>"; };
@@ -38,11 +41,11 @@
 		13EEB1E41CA7C016009BEE27 /* RootMessageTableView_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootMessageTableView_C.m; sourceTree = "<group>"; };
 		13EEB1E61CA7C040009BEE27 /* RootFirstTableView_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootFirstTableView_C.h; sourceTree = "<group>"; };
 		13EEB1E71CA7C040009BEE27 /* RootFirstTableView_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootFirstTableView_C.m; sourceTree = "<group>"; };
-		13EEB1E91CA7C10A009BEE27 /* RootTabBar_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBar_C.h; sourceTree = "<group>"; };
-		13EEB1EA1CA7C10A009BEE27 /* RootTabBar_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBar_C.m; sourceTree = "<group>"; };
+		13EEB1E91CA7C10A009BEE27 /* RootTabBar_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootTabBar_C.h; path = ../Other/RootTabBar_C.h; sourceTree = "<group>"; };
+		13EEB1EA1CA7C10A009BEE27 /* RootTabBar_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootTabBar_C.m; path = ../Other/RootTabBar_C.m; sourceTree = "<group>"; };
 		13EEB1EC1CA7CDEC009BEE27 /* SineWB.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWB.pch; sourceTree = "<group>"; };
-		13EEB1ED1CA7D4FD009BEE27 /* UIImage+StringImageNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StringImageNamed.h"; sourceTree = "<group>"; };
-		13EEB1EE1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StringImageNamed.m"; sourceTree = "<group>"; };
+		13EEB1ED1CA7D4FD009BEE27 /* UIImage+StringImageNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+StringImageNamed.h"; path = "../Other/UIImage+StringImageNamed.h"; sourceTree = "<group>"; };
+		13EEB1EE1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+StringImageNamed.m"; path = "../Other/UIImage+StringImageNamed.m"; sourceTree = "<group>"; };
 		13F9022D1CA64C0B000A7F86 /* SineWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SineWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F902311CA64C0B000A7F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13F902321CA64C0B000A7F86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,6 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13E9B51B1CA80559000980B7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				13EEB1E91CA7C10A009BEE27 /* RootTabBar_C.h */,
+				13EEB1EA1CA7C10A009BEE27 /* RootTabBar_C.m */,
+				13EEB1ED1CA7D4FD009BEE27 /* UIImage+StringImageNamed.h */,
+				13EEB1EE1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m */,
+				13E9B51C1CA8058F000980B7 /* myTabBar_V.h */,
+				13E9B51D1CA8058F000980B7 /* myTabBar_V.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		13EEB1D71CA7BF77009BEE27 /* S01 */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,10 +136,6 @@
 			children = (
 				13F902341CA64C0B000A7F86 /* AppDelegate.h */,
 				13F902351CA64C0B000A7F86 /* AppDelegate.m */,
-				13EEB1E91CA7C10A009BEE27 /* RootTabBar_C.h */,
-				13EEB1EA1CA7C10A009BEE27 /* RootTabBar_C.m */,
-				13EEB1ED1CA7D4FD009BEE27 /* UIImage+StringImageNamed.h */,
-				13EEB1EE1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 		13F9022F1CA64C0B000A7F86 /* SineWB */ = {
 			isa = PBXGroup;
 			children = (
+				13E9B51B1CA80559000980B7 /* Main */,
 				13EEB1DF1CA7BFD7009BEE27 /* Other */,
 				13EEB1D71CA7BF77009BEE27 /* S01 */,
 				13EEB1D81CA7BF77009BEE27 /* S02 */,
@@ -288,6 +301,7 @@
 			files = (
 				13EEB1EF1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m in Sources */,
 				13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */,
+				13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */,
 				13F902361CA64C0B000A7F86 /* AppDelegate.m in Sources */,
 				13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */,
 				13F902331CA64C0B000A7F86 /* main.m in Sources */,
