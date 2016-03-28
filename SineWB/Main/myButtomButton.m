@@ -80,6 +80,9 @@
     [self setImage:self.items.image forState:UIControlStateNormal];
     [self setImage:self.items.selectedImage forState:UIControlStateSelected];
     
+    //设置提醒数字-->吃吃亏,这里没写,显示不出来
+    self.badgeButton.badgeValue=self.items.badgeValue;
+    
     //数字提醒 位置
     // 设置提醒数字的位置
     CGFloat badgeY = 5;

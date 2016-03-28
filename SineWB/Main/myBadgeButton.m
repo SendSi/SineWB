@@ -10,7 +10,7 @@
 #import "UIImage+StringImageNamed.h"
 
 @implementation myBadgeButton
-
+/* 初始化  */
 -(instancetype)initWithFrame:(CGRect)frame{
     self=[super initWithFrame:frame];
     if (self) {
@@ -38,6 +38,8 @@
         CGFloat badgeW=self.currentBackgroundImage.size.width;
         if (badgeValue.length>1) {//一定长度时,左右移
             CGSize badgeSize=[badgeValue sizeWithFont:self.titleLabel.font];
+            //CGSize badgeSize=[badgeValue sizeWithAttributes];
+            
             badgeW=badgeSize.width+10;//
         }
         frame.size.width=badgeW;
