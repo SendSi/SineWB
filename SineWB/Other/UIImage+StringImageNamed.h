@@ -10,6 +10,6 @@
 
 @interface UIImage (StringImageNamed)
 +(UIImage *)imageWithNamed:(NSString *)picName;
-	
-	
++(UIImage *)resizedImageWithName:(NSString *)name;
+
 @end

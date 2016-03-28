@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133B67791CA8E6C90031AF5C /* myButtomButton.m */; };
+		13C22E211CA9279B00A74814 /* myBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C22E201CA9279B00A74814 /* myBadgeButton.m */; };
 		13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9B51D1CA8058F000980B7 /* myTabBar_V.m */; };
 		13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1DD1CA7BFC2009BEE27 /* RootMeTableView_C.m */; };
 		13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1E11CA7BFFE009BEE27 /* RootDiscoverTableView_C.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		133B67781CA8E6C90031AF5C /* myButtomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myButtomButton.h; sourceTree = "<group>"; };
 		133B67791CA8E6C90031AF5C /* myButtomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myButtomButton.m; sourceTree = "<group>"; };
+		13C22E1F1CA9279B00A74814 /* myBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myBadgeButton.h; sourceTree = "<group>"; };
+		13C22E201CA9279B00A74814 /* myBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myBadgeButton.m; sourceTree = "<group>"; };
 		13E9B51C1CA8058F000980B7 /* myTabBar_V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTabBar_V.h; sourceTree = "<group>"; };
 		13E9B51D1CA8058F000980B7 /* myTabBar_V.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTabBar_V.m; sourceTree = "<group>"; };
 		13EEB1DC1CA7BFC2009BEE27 /* RootMeTableView_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootMeTableView_C.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				13E9B51D1CA8058F000980B7 /* myTabBar_V.m */,
 				133B67781CA8E6C90031AF5C /* myButtomButton.h */,
 				133B67791CA8E6C90031AF5C /* myButtomButton.m */,
+				13C22E1F1CA9279B00A74814 /* myBadgeButton.h */,
+				13C22E201CA9279B00A74814 /* myBadgeButton.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */,
 				13F902361CA64C0B000A7F86 /* AppDelegate.m in Sources */,
 				13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */,
+				13C22E211CA9279B00A74814 /* myBadgeButton.m in Sources */,
 				13F902331CA64C0B000A7F86 /* main.m in Sources */,
 				133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */,
 				13EEB1E81CA7C040009BEE27 /* RootFirstTableView_C.m in Sources */,

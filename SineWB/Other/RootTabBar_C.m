@@ -14,6 +14,7 @@
 #import "UIImage+StringImageNamed.h"
 #import "myTabBar_V.h"
 
+
 @interface RootTabBar_C()<myTabBar_V_Delegate>
 @property (nonatomic ,strong) myTabBar_V *myTabBar_Vs;
 @end
@@ -47,15 +48,15 @@
     }
 }
 
-
-
 -(void)setUpAllChildController{
     RootFirstTableView_C *first=[[RootFirstTableView_C alloc] init];
     first.view.backgroundColor=[UIColor redColor];
+first.tabBarItem.badgeValue=@"12";
     [self loadEventOneRootView_C:first and_title:@"首页" and_image:@"tabbar_home" and_pressImage:@"tabbar_home_selected" ];
     
     RootMessageTableView_C *message=[[RootMessageTableView_C alloc] init];
     message.view.backgroundColor=[UIColor grayColor];
+    message.tabBarItem.badgeValue=@"12";
     [self loadEventOneRootView_C:message and_title:@"消息" and_image:@"tabbar_message_center" and_pressImage:@"tabbar_message_center_selected" ];
     
     RootDiscoverTableView_C *disCover=[[RootDiscoverTableView_C alloc] init];
