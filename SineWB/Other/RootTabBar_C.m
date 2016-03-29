@@ -13,7 +13,7 @@
 #import "RootMeTableView_C.h"
 #import "UIImage+StringImageNamed.h"
 #import "myTabBar_V.h"
-
+#import "myNavigation_C.h"
 
 @interface RootTabBar_C()<myTabBar_V_Delegate>
 @property (nonatomic ,strong) myTabBar_V *myTabBar_Vs;
@@ -80,7 +80,7 @@ first.tabBarItem.badgeValue=@"12";
         view_C.tabBarItem.selectedImage=[UIImage imageWithNamed:pressImage] ;
     }
 
-    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:view_C];
+    myNavigation_C *nav=[[myNavigation_C alloc] initWithRootViewController:view_C];
     [self addChildViewController:nav];
 
 //添加 tabBar内部的按钮--->myTabBar_V

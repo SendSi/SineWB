@@ -20,6 +20,7 @@
 		13F902361CA64C0B000A7F86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F902351CA64C0B000A7F86 /* AppDelegate.m */; };
 		13F9023E1CA64C0C000A7F86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F9023D1CA64C0C000A7F86 /* Images.xcassets */; };
 		13F9024D1CA64C0C000A7F86 /* SineWBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F9024C1CA64C0C000A7F86 /* SineWBTests.m */; };
+		84F7C0D91CA97DB800BACF26 /* myNavigation_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7C0D81CA97DB800BACF26 /* myNavigation_C.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		13F902461CA64C0C000A7F86 /* SineWBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SineWBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F9024B1CA64C0C000A7F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13F9024C1CA64C0C000A7F86 /* SineWBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SineWBTests.m; sourceTree = "<group>"; };
+		84F7C0D71CA97DB800BACF26 /* myNavigation_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myNavigation_C.h; sourceTree = "<group>"; };
+		84F7C0D81CA97DB800BACF26 /* myNavigation_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myNavigation_C.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				133B67791CA8E6C90031AF5C /* myButtomButton.m */,
 				13C22E1F1CA9279B00A74814 /* myBadgeButton.h */,
 				13C22E201CA9279B00A74814 /* myBadgeButton.m */,
+				84F7C0D71CA97DB800BACF26 /* myNavigation_C.h */,
+				84F7C0D81CA97DB800BACF26 /* myNavigation_C.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				13EEB1EF1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m in Sources */,
 				13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */,
 				13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */,
+				84F7C0D91CA97DB800BACF26 /* myNavigation_C.m in Sources */,
 				13F902361CA64C0B000A7F86 /* AppDelegate.m in Sources */,
 				13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */,
 				13C22E211CA9279B00A74814 /* myBadgeButton.m in Sources */,
