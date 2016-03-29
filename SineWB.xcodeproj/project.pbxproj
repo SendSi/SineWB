@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133B67791CA8E6C90031AF5C /* myButtomButton.m */; };
+		139D9B4E1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */; };
+		139D9B511CAA5E5D00EDC83C /* mySearchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B501CAA5E5D00EDC83C /* mySearchText.m */; };
+		139D9B541CAA72F200EDC83C /* topButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B531CAA72F200EDC83C /* topButton.m */; };
 		13C22E211CA9279B00A74814 /* myBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C22E201CA9279B00A74814 /* myBadgeButton.m */; };
 		13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9B51D1CA8058F000980B7 /* myTabBar_V.m */; };
 		13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1DD1CA7BFC2009BEE27 /* RootMeTableView_C.m */; };
@@ -36,6 +39,12 @@
 /* Begin PBXFileReference section */
 		133B67781CA8E6C90031AF5C /* myButtomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myButtomButton.h; sourceTree = "<group>"; };
 		133B67791CA8E6C90031AF5C /* myButtomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myButtomButton.m; sourceTree = "<group>"; };
+		139D9B4C1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+TopLeftRight.h"; sourceTree = "<group>"; };
+		139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+TopLeftRight.m"; sourceTree = "<group>"; };
+		139D9B4F1CAA5E5D00EDC83C /* mySearchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySearchText.h; sourceTree = "<group>"; };
+		139D9B501CAA5E5D00EDC83C /* mySearchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mySearchText.m; sourceTree = "<group>"; };
+		139D9B521CAA72F200EDC83C /* topButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = topButton.h; sourceTree = "<group>"; };
+		139D9B531CAA72F200EDC83C /* topButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = topButton.m; sourceTree = "<group>"; };
 		13C22E1F1CA9279B00A74814 /* myBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myBadgeButton.h; sourceTree = "<group>"; };
 		13C22E201CA9279B00A74814 /* myBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myBadgeButton.m; sourceTree = "<group>"; };
 		13E9B51C1CA8058F000980B7 /* myTabBar_V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTabBar_V.h; sourceTree = "<group>"; };
@@ -84,9 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		139D9B4B1CAA365000EDC83C /* top */ = {
+			isa = PBXGroup;
+			children = (
+				139D9B4C1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.h */,
+				139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */,
+				139D9B4F1CAA5E5D00EDC83C /* mySearchText.h */,
+				139D9B501CAA5E5D00EDC83C /* mySearchText.m */,
+			);
+			path = top;
+			sourceTree = "<group>";
+		};
 		13E9B51B1CA80559000980B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				139D9B4B1CAA365000EDC83C /* top */,
 				13EEB1E91CA7C10A009BEE27 /* RootTabBar_C.h */,
 				13EEB1EA1CA7C10A009BEE27 /* RootTabBar_C.m */,
 				13EEB1ED1CA7D4FD009BEE27 /* UIImage+StringImageNamed.h */,
@@ -108,6 +129,8 @@
 			children = (
 				13EEB1E61CA7C040009BEE27 /* RootFirstTableView_C.h */,
 				13EEB1E71CA7C040009BEE27 /* RootFirstTableView_C.m */,
+				139D9B521CAA72F200EDC83C /* topButton.h */,
+				139D9B531CAA72F200EDC83C /* topButton.m */,
 			);
 			path = S01;
 			sourceTree = "<group>";
@@ -314,10 +337,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139D9B541CAA72F200EDC83C /* topButton.m in Sources */,
 				13EEB1EF1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m in Sources */,
 				13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */,
 				13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */,
 				84F7C0D91CA97DB800BACF26 /* myNavigation_C.m in Sources */,
+				139D9B511CAA5E5D00EDC83C /* mySearchText.m in Sources */,
 				13F902361CA64C0B000A7F86 /* AppDelegate.m in Sources */,
 				13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */,
 				13C22E211CA9279B00A74814 /* myBadgeButton.m in Sources */,
@@ -326,6 +351,7 @@
 				13EEB1E81CA7C040009BEE27 /* RootFirstTableView_C.m in Sources */,
 				13EEB1EB1CA7C10A009BEE27 /* RootTabBar_C.m in Sources */,
 				13EEB1E51CA7C016009BEE27 /* RootMessageTableView_C.m in Sources */,
+				139D9B4E1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

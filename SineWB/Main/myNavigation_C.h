@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/* 继承 UINavigationController   1.覆盖底部 消失  */
 @interface myNavigation_C : UINavigationController
 
 @end
