@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133B67791CA8E6C90031AF5C /* myButtomButton.m */; };
+		135252B41CAAAB1800145A27 /* startOncePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 135252B31CAAAB1800145A27 /* startOncePanel.m */; };
 		139D9B4E1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */; };
 		139D9B511CAA5E5D00EDC83C /* mySearchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B501CAA5E5D00EDC83C /* mySearchText.m */; };
 		139D9B541CAA72F200EDC83C /* topButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B531CAA72F200EDC83C /* topButton.m */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		133B67781CA8E6C90031AF5C /* myButtomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myButtomButton.h; sourceTree = "<group>"; };
 		133B67791CA8E6C90031AF5C /* myButtomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myButtomButton.m; sourceTree = "<group>"; };
+		135252B21CAAAB1800145A27 /* startOncePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startOncePanel.h; sourceTree = "<group>"; };
+		135252B31CAAAB1800145A27 /* startOncePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startOncePanel.m; sourceTree = "<group>"; };
 		139D9B4C1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+TopLeftRight.h"; sourceTree = "<group>"; };
 		139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+TopLeftRight.m"; sourceTree = "<group>"; };
 		139D9B4F1CAA5E5D00EDC83C /* mySearchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySearchText.h; sourceTree = "<group>"; };
@@ -93,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		135252B11CAAAAF100145A27 /* StartPanel */ = {
+			isa = PBXGroup;
+			children = (
+				135252B21CAAAB1800145A27 /* startOncePanel.h */,
+				135252B31CAAAB1800145A27 /* startOncePanel.m */,
+			);
+			path = StartPanel;
+			sourceTree = "<group>";
+		};
 		139D9B4B1CAA365000EDC83C /* top */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +211,7 @@
 		13F9022F1CA64C0B000A7F86 /* SineWB */ = {
 			isa = PBXGroup;
 			children = (
+				135252B11CAAAAF100145A27 /* StartPanel */,
 				13E9B51B1CA80559000980B7 /* Main */,
 				13EEB1DF1CA7BFD7009BEE27 /* Other */,
 				13EEB1D71CA7BF77009BEE27 /* S01 */,
@@ -351,6 +364,7 @@
 				13EEB1E81CA7C040009BEE27 /* RootFirstTableView_C.m in Sources */,
 				13EEB1EB1CA7C10A009BEE27 /* RootTabBar_C.m in Sources */,
 				13EEB1E51CA7C016009BEE27 /* RootMessageTableView_C.m in Sources */,
+				135252B41CAAAB1800145A27 /* startOncePanel.m in Sources */,
 				139D9B4E1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

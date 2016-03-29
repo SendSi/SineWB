@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootTabBar_C.h"
-
+#import "startOncePanel.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +24,7 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor redColor];
-    self.window.rootViewController=[[RootTabBar_C alloc] init];
+    self.window.rootViewController=[[startOncePanel alloc] init];
     [self.window makeKeyAndVisible];
     
     return YES;

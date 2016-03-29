@@ -35,7 +35,7 @@
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem myBarButtonItem_pic:@"navigationbar_pop" and_HightPic:@"navigationbar_pop_highlighted" and_target:self and_action:@selector(ClickPop)];
     
     topButton *top=[[topButton alloc] init];
-    [top setTitle:@"hell lo" forState:UIControlStateNormal];
+    [top setTitle:@"helloworld" forState:UIControlStateNormal];
     [top setImage:[UIImage imageWithNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [UIImage imageWithNamed:@"navigationbar_arrow_up"];
     top.frame=CGRectMake(0, 0, 100, 30);
