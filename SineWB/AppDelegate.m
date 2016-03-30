@@ -20,11 +20,50 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //显示 时间栏
     application.statusBarHidden=NO;
-
-    // Override point for customization after application launch.
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSLog(@"%@",paths);
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor redColor];
-    self.window.rootViewController=[[startOncePanel alloc] init];
+//    NSString *key=@"CFBundleVersion";
+//    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+//    NSString *lastVer= [defaults stringForKey:key];
+//    NSDictionary *appDic=[NSBundle mainBundle] .infoDictionary;
+//    NSString * currentVer=    appDic[key];
+//    NSLogs(@"%@  main中%@",lastVer,currentVer);
+//    if ([currentVer isEqualToString:lastVer]) {//相等
+//        self.window.rootViewController=[[RootTabBar_C alloc] init];
+//    }
+//    else{//不等
+//        self.window.rootViewController=[[startOncePanel alloc] init];
+//        
+//        [defaults setObject:currentVer forKey:key];
+//        [defaults synchronize];
+//    }
+    
+    
+    NSString *key = @"CFBundleVersion";
+    
+    // 取出沙盒中存储的上次使用软件的版本号
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastVersion = [defaults stringForKey:key];
+    
+    // 获得当前软件的版本号
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+    
+    if ([currentVersion isEqualToString:lastVersion]) {
+        // 显示状态栏
+        application.statusBarHidden = NO;
+        
+        self.window.rootViewController = [[RootTabBar_C alloc] init];
+    } else { // 新版本
+        self.window.rootViewController = [[startOncePanel alloc] init];
+        // 存储新版本
+        [defaults setObject:currentVersion forKey:key];
+        [defaults synchronize];
+    }
+    
     [self.window makeKeyAndVisible];
     
     return YES;

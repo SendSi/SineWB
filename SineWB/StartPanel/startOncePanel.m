@@ -93,7 +93,7 @@
     CGFloat cen_X=self.view.frame.size.width*0.5,cen_Y=self.view.frame.size.height*0.5;
     shareBtn.center=CGPointMake(cen_X, cen_Y);
     shareBtn.bounds=CGRectMake(0, 0, 120, 30);
-    
+    shareBtn.selected=YES;
     [shareBtn addTarget:self action:@selector(ClickShare:) forControlEvents:UIControlEventTouchUpInside];
     [pages addSubview:shareBtn];
 }
