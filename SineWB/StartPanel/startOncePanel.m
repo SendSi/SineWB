@@ -100,7 +100,8 @@
     [pages addSubview:shareBtn];
 }
 -(void)ClickStart:(UIButton *)btns{
-    NSLogs(@"fsa");
+    NSLogs(@"ClickStart");
+    
     self.view.window.rootViewController=[[RootTabBar_C alloc] init];
 }
 -(void)ClickShare:(UIButton *)btns{
