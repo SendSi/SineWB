@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootTabBar_C.h"
 #import "startOncePanel.h"
+#import "myOAuthView_C.h"
 
 @interface AppDelegate ()
 
@@ -26,23 +27,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor redColor];
-//    NSString *key=@"CFBundleVersion";
-//    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-//    NSString *lastVer= [defaults stringForKey:key];
-//    NSDictionary *appDic=[NSBundle mainBundle] .infoDictionary;
-//    NSString * currentVer=    appDic[key];
-//    NSLogs(@"%@  main中%@",lastVer,currentVer);
-//    if ([currentVer isEqualToString:lastVer]) {//相等
-//        self.window.rootViewController=[[RootTabBar_C alloc] init];
-//    }
-//    else{//不等
-//        self.window.rootViewController=[[startOncePanel alloc] init];
-//        
-//        [defaults setObject:currentVer forKey:key];
-//        [defaults synchronize];
-//    }
-    
-    
+
+   self.window.rootViewController = [[ myOAuthView_C   alloc] init];
+    /*
     NSString *key = @"CFBundleVersion";
     
     // 取出沙盒中存储的上次使用软件的版本号
@@ -63,6 +50,7 @@
         [defaults setObject:currentVersion forKey:key];
         [defaults synchronize];
     }
+    */
     
     [self.window makeKeyAndVisible];
     
