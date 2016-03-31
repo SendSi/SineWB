@@ -10,6 +10,9 @@
 #import "RootTabBar_C.h"
 #import "startOncePanel.h"
 #import "myOAuthView_C.h"
+#import "startRootSelect.h"
+#import "getSetAccountTool.h"
+#import "OAuth_Model.h"
 
 @interface AppDelegate ()
 
@@ -26,33 +29,19 @@
     NSLog(@"%@",paths);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor redColor];
-
-   self.window.rootViewController = [[ myOAuthView_C   alloc] init];
-    /*
-    NSString *key = @"CFBundleVersion";
-    
-    // 取出沙盒中存储的上次使用软件的版本号
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *lastVersion = [defaults stringForKey:key];
-    
-    // 获得当前软件的版本号
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-    
-    if ([currentVersion isEqualToString:lastVersion]) {
-        // 显示状态栏
-        application.statusBarHidden = NO;
-        
-        self.window.rootViewController = [[RootTabBar_C alloc] init];
-    } else { // 新版本
-        self.window.rootViewController = [[startOncePanel alloc] init];
-        // 存储新版本
-        [defaults setObject:currentVersion forKey:key];
-        [defaults synchronize];
-    }
-    */
-    
     [self.window makeKeyAndVisible];
+    
+    //1.先判断 有无存储账号信息
+    OAuth_Model *account=[getSetAccountTool getAccount];
+    if(account){//为true 之前登录过
+        [startRootSelect selectRootController];
+    }else{
+        self.window.rootViewController=[[myOAuthView_C alloc] init];
+    }
+    
+    
+    
+    
     
     return YES;
 }

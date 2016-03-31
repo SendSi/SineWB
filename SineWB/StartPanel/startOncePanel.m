@@ -8,7 +8,9 @@
 #define  pageNumber 3
 #import "startOncePanel.h"
 #import "UIImage+StringImageNamed.h"
-#import "RootFirstTableView_C.h"
+#import "RootTabBar_C.h"
+
+
 @interface startOncePanel()<UIScrollViewDelegate>
 @property (weak,nonatomic) UIPageControl *myPageControls;
 @end
@@ -99,7 +101,7 @@
 }
 -(void)ClickStart:(UIButton *)btns{
     NSLogs(@"fsa");
-    self.view.window.rootViewController=[[RootFirstTableView_C alloc] init];
+    self.view.window.rootViewController=[[RootTabBar_C alloc] init];
 }
 -(void)ClickShare:(UIButton *)btns{
     btns.selected=!btns.selected;
