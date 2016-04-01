@@ -19,6 +19,8 @@
 		1313517C1CAC1B7500D81328 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 131351731CAC1B7500D81328 /* AFURLSessionManager.m */; };
 		133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 133B67791CA8E6C90031AF5C /* myButtomButton.m */; };
 		133E7A9E1CACC71A007436A1 /* OAuth_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 133E7A9D1CACC71A007436A1 /* OAuth_Model.m */; };
+		1344F8F51CAE20C100E28E5E /* myStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1344F8F41CAE20C100E28E5E /* myStatusCell.m */; };
+		1344F8F81CAE20E300E28E5E /* myTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1344F8F71CAE20E300E28E5E /* myTitleButton.m */; };
 		135252B41CAAAB1800145A27 /* startOncePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 135252B31CAAAB1800145A27 /* startOncePanel.m */; };
 		135374DD1CAE1163001B3B44 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 135374CB1CAE1162001B3B44 /* MJArgument.m */; };
 		135374DE1CAE1163001B3B44 /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 135374CE1CAE1162001B3B44 /* MJIvar.m */; };
@@ -36,6 +38,7 @@
 		13795B5E1CAD05D2002C4D2F /* getSetAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13795B5D1CAD05D2002C4D2F /* getSetAccountTool.m */; };
 		138EA5481CADED32008520CD /* myStatus_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 138EA5471CADED32008520CD /* myStatus_Model.m */; };
 		138EA54B1CADED65008520CD /* myUser_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 138EA54A1CADED65008520CD /* myUser_Model.m */; };
+		1393CE701CAE781000F88334 /* myStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1393CE6F1CAE781000F88334 /* myStatusFrame.m */; };
 		139D9B4E1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */; };
 		139D9B511CAA5E5D00EDC83C /* mySearchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B501CAA5E5D00EDC83C /* mySearchText.m */; };
 		139D9B541CAA72F200EDC83C /* topButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B531CAA72F200EDC83C /* topButton.m */; };
@@ -107,6 +110,10 @@
 		133B67791CA8E6C90031AF5C /* myButtomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myButtomButton.m; sourceTree = "<group>"; };
 		133E7A9C1CACC71A007436A1 /* OAuth_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth_Model.h; sourceTree = "<group>"; };
 		133E7A9D1CACC71A007436A1 /* OAuth_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth_Model.m; sourceTree = "<group>"; };
+		1344F8F31CAE20C100E28E5E /* myStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myStatusCell.h; sourceTree = "<group>"; };
+		1344F8F41CAE20C100E28E5E /* myStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myStatusCell.m; sourceTree = "<group>"; };
+		1344F8F61CAE20E300E28E5E /* myTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTitleButton.h; sourceTree = "<group>"; };
+		1344F8F71CAE20E300E28E5E /* myTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTitleButton.m; sourceTree = "<group>"; };
 		135252B21CAAAB1800145A27 /* startOncePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startOncePanel.h; sourceTree = "<group>"; };
 		135252B31CAAAB1800145A27 /* startOncePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startOncePanel.m; sourceTree = "<group>"; };
 		135374CA1CAE1162001B3B44 /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
@@ -141,6 +148,8 @@
 		138EA5471CADED32008520CD /* myStatus_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myStatus_Model.m; sourceTree = "<group>"; };
 		138EA5491CADED65008520CD /* myUser_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myUser_Model.h; sourceTree = "<group>"; };
 		138EA54A1CADED65008520CD /* myUser_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myUser_Model.m; sourceTree = "<group>"; };
+		1393CE6E1CAE781000F88334 /* myStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myStatusFrame.h; sourceTree = "<group>"; };
+		1393CE6F1CAE781000F88334 /* myStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myStatusFrame.m; sourceTree = "<group>"; };
 		139D9B4C1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+TopLeftRight.h"; sourceTree = "<group>"; };
 		139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+TopLeftRight.m"; sourceTree = "<group>"; };
 		139D9B4F1CAA5E5D00EDC83C /* mySearchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySearchText.h; sourceTree = "<group>"; };
@@ -256,6 +265,17 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		1344F8F21CAE209300E28E5E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1344F8F31CAE20C100E28E5E /* myStatusCell.h */,
+				1344F8F41CAE20C100E28E5E /* myStatusCell.m */,
+				1344F8F61CAE20E300E28E5E /* myTitleButton.h */,
+				1344F8F71CAE20E300E28E5E /* myTitleButton.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		135252B11CAAAAF100145A27 /* StartPanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +338,8 @@
 			children = (
 				138EA5461CADED32008520CD /* myStatus_Model.h */,
 				138EA5471CADED32008520CD /* myStatus_Model.m */,
+				1393CE6E1CAE781000F88334 /* myStatusFrame.h */,
+				1393CE6F1CAE781000F88334 /* myStatusFrame.m */,
 				138EA5491CADED65008520CD /* myUser_Model.h */,
 				138EA54A1CADED65008520CD /* myUser_Model.m */,
 			);
@@ -398,6 +420,7 @@
 		13EEB1D71CA7BF77009BEE27 /* S01 */ = {
 			isa = PBXGroup;
 			children = (
+				1344F8F21CAE209300E28E5E /* view */,
 				138EA5451CADED15008520CD /* model */,
 				13EEB1E61CA7C040009BEE27 /* RootFirstTableView_C.h */,
 				13EEB1E71CA7C040009BEE27 /* RootFirstTableView_C.m */,
@@ -620,6 +643,7 @@
 				131351741CAC1B7500D81328 /* AFHTTPRequestOperation.m in Sources */,
 				139D9B541CAA72F200EDC83C /* topButton.m in Sources */,
 				135374DE1CAE1163001B3B44 /* MJIvar.m in Sources */,
+				1344F8F81CAE20E300E28E5E /* myTitleButton.m in Sources */,
 				13EEB1EF1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m in Sources */,
 				13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */,
 				13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */,
@@ -627,6 +651,7 @@
 				13DC47091CAD74BD008209CA /* UIImageView+WebCache.m in Sources */,
 				84F7C0D91CA97DB800BACF26 /* myNavigation_C.m in Sources */,
 				135374E01CAE1163001B3B44 /* MJMethod.m in Sources */,
+				1393CE701CAE781000F88334 /* myStatusFrame.m in Sources */,
 				13591CC61CAD14B300C09B42 /* MBProgressHUD+MJ.m in Sources */,
 				13DC47041CAD74BD008209CA /* UIButton+WebCache.m in Sources */,
 				13795B5B1CAD0585002C4D2F /* startRootSelect.m in Sources */,
@@ -658,6 +683,7 @@
 				1313517A1CAC1B7500D81328 /* AFURLRequestSerialization.m in Sources */,
 				133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */,
 				13EEB1E81CA7C040009BEE27 /* RootFirstTableView_C.m in Sources */,
+				1344F8F51CAE20C100E28E5E /* myStatusCell.m in Sources */,
 				13DC46FB1CAD74BD008209CA /* MKAnnotationView+WebCache.m in Sources */,
 				13DC47061CAD74BD008209CA /* UIImage+MultiFormat.m in Sources */,
 				13591CC81CAD14B300C09B42 /* MBProgressHUD.m in Sources */,

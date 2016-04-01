@@ -22,10 +22,14 @@
 @property (nonatomic,assign) int reposts_count;
 /**  评论数   */
 @property (nonatomic,assign) int  comments_count;
-
+/** 微博的作者  */
 @property (nonatomic,strong) myUser_Model *user;
 
+/**   微博的  单张配图   */
+@property (copy,nonatomic) NSString *thumbnail_pic;
 
+/**     被转发的 微博   */
+@property (copy,nonatomic) myStatus_Model *retweeted_status;
 
 
 @end
