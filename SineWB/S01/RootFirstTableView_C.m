@@ -14,6 +14,8 @@
 #import "getSetAccountTool.h"
 #import "OAuth_Model.h"
 #import "UIImageView+WebCache.h"
+#import "myUser_Model.h"
+#import "myStatus_Model.h"
 
 @interface RootFirstTableView_C()<UITableViewDelegate>
 @property (nonatomic,strong) NSArray *myStatusData;
@@ -46,10 +48,18 @@
    AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
-    params[@"count"]=@20;
+    params[@"count"]=@2;
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLogs(@"成功了~~%@",responseObject);
-        self.myStatusData=responseObject[@"statuses"];
+        
+        NSMutableArray *statu_M =[NSMutableArray array];
+        NSArray *arrs=responseObject[@"statuses"];
+        for (NSDictionary *dict in arrs) {
+            myStatus_Model *model=[myStatus_Model initInstance:dict];
+            [statu_M addObject:model ];
+        }
+        self.myStatusData=statu_M;
+        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -89,7 +99,7 @@
     NSLogs(@"ClickPop");
 }
 
-#pragma  mark -UITableView代理 
+#pragma  mark  -UITableView代理 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return  self.myStatusData.count;
 }
@@ -98,12 +108,19 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cells];
     if(cell==nil)cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cells];
     
-    NSDictionary *statuses=self.myStatusData[indexPath.row];
-    cell.textLabel.text=statuses[@"text"];
-    NSDictionary *user=statuses[@"user"];//再向字典取值
-    cell.detailTextLabel.text=user[@"name"];
-    NSString *iconUrl=user[@"profile_image_url"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:[UIImage imageWithNamed:@"new_feature_share_false"]];
+//    NSDictionary *statuses=self.myStatusData[indexPath.row];
+//    cell.textLabel.text=statuses[@"text"];
+//    NSDictionary *user=statuses[@"user"];//再向字典取值
+//    cell.detailTextLabel.text=user[@"name"];
+//    NSString *iconUrl=user[@"profile_image_url"];
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:[UIImage imageWithNamed:@"new_feature_share_false"]];
+    
+        myStatus_Model *statuses=self.myStatusData[indexPath.row];
+    cell.textLabel.text=statuses.text;
+        myUser_Model *user=statuses.user;//再向字典取值
+        cell.detailTextLabel.text=user.name;
+             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithNamed:@"new_feature_share_false"]];
+
     return  cell;
 }
 /*

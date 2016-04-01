@@ -25,6 +25,8 @@
 		13591CC81CAD14B300C09B42 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 13591CC51CAD14B300C09B42 /* MBProgressHUD.m */; };
 		13795B5B1CAD0585002C4D2F /* startRootSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 13795B5A1CAD0585002C4D2F /* startRootSelect.m */; };
 		13795B5E1CAD05D2002C4D2F /* getSetAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13795B5D1CAD05D2002C4D2F /* getSetAccountTool.m */; };
+		138EA5481CADED32008520CD /* myStatus_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 138EA5471CADED32008520CD /* myStatus_Model.m */; };
+		138EA54B1CADED65008520CD /* myUser_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 138EA54A1CADED65008520CD /* myUser_Model.m */; };
 		139D9B4E1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */; };
 		139D9B511CAA5E5D00EDC83C /* mySearchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B501CAA5E5D00EDC83C /* mySearchText.m */; };
 		139D9B541CAA72F200EDC83C /* topButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D9B531CAA72F200EDC83C /* topButton.m */; };
@@ -107,6 +109,10 @@
 		13795B5A1CAD0585002C4D2F /* startRootSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startRootSelect.m; sourceTree = "<group>"; };
 		13795B5C1CAD05D2002C4D2F /* getSetAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getSetAccountTool.h; sourceTree = "<group>"; };
 		13795B5D1CAD05D2002C4D2F /* getSetAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getSetAccountTool.m; sourceTree = "<group>"; };
+		138EA5461CADED32008520CD /* myStatus_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myStatus_Model.h; sourceTree = "<group>"; };
+		138EA5471CADED32008520CD /* myStatus_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myStatus_Model.m; sourceTree = "<group>"; };
+		138EA5491CADED65008520CD /* myUser_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myUser_Model.h; sourceTree = "<group>"; };
+		138EA54A1CADED65008520CD /* myUser_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myUser_Model.m; sourceTree = "<group>"; };
 		139D9B4C1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+TopLeftRight.h"; sourceTree = "<group>"; };
 		139D9B4D1CAA541400EDC83C /* UIBarButtonItem+TopLeftRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+TopLeftRight.m"; sourceTree = "<group>"; };
 		139D9B4F1CAA5E5D00EDC83C /* mySearchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySearchText.h; sourceTree = "<group>"; };
@@ -253,6 +259,17 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		138EA5451CADED15008520CD /* model */ = {
+			isa = PBXGroup;
+			children = (
+				138EA5461CADED32008520CD /* myStatus_Model.h */,
+				138EA5471CADED32008520CD /* myStatus_Model.m */,
+				138EA5491CADED65008520CD /* myUser_Model.h */,
+				138EA54A1CADED65008520CD /* myUser_Model.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		139D9B4B1CAA365000EDC83C /* top */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +344,7 @@
 		13EEB1D71CA7BF77009BEE27 /* S01 */ = {
 			isa = PBXGroup;
 			children = (
+				138EA5451CADED15008520CD /* model */,
 				13EEB1E61CA7C040009BEE27 /* RootFirstTableView_C.h */,
 				13EEB1E71CA7C040009BEE27 /* RootFirstTableView_C.m */,
 				139D9B521CAA72F200EDC83C /* topButton.h */,
@@ -548,6 +566,7 @@
 				13EEB1EF1CA7D4FD009BEE27 /* UIImage+StringImageNamed.m in Sources */,
 				13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */,
 				13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */,
+				138EA54B1CADED65008520CD /* myUser_Model.m in Sources */,
 				13DC47091CAD74BD008209CA /* UIImageView+WebCache.m in Sources */,
 				84F7C0D91CA97DB800BACF26 /* myNavigation_C.m in Sources */,
 				13591CC61CAD14B300C09B42 /* MBProgressHUD+MJ.m in Sources */,
@@ -567,6 +586,7 @@
 				13DC47021CAD74BD008209CA /* SDWebImageManager.m in Sources */,
 				131351771CAC1B7500D81328 /* AFNetworkReachabilityManager.m in Sources */,
 				1313517C1CAC1B7500D81328 /* AFURLSessionManager.m in Sources */,
+				138EA5481CADED32008520CD /* myStatus_Model.m in Sources */,
 				13C22E211CA9279B00A74814 /* myBadgeButton.m in Sources */,
 				1313515F1CAC046400D81328 /* myOAuthView_C.m in Sources */,
 				131351791CAC1B7500D81328 /* AFURLConnectionOperation.m in Sources */,
