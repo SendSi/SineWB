@@ -16,9 +16,6 @@
 /**  用户 icon   */
 @property (nonatomic,copy) NSString *profile_image_url;
 
--(instancetype)initModels:(NSDictionary *)dict;
-/**  静态 初始化   */
-+(instancetype)initInstance:(NSDictionary *)dict;
 
 
 

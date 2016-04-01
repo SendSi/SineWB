@@ -25,9 +25,6 @@
 
 @property (nonatomic,strong) myUser_Model *user;
 
--(instancetype)initModels:(NSDictionary *)dict;
-+(instancetype)initInstance:(NSDictionary *)dict;
-
 
 
 

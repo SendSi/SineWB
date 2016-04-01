@@ -16,6 +16,7 @@
 #import "UIImageView+WebCache.h"
 #import "myUser_Model.h"
 #import "myStatus_Model.h"
+#import "MJExtension.h"
 
 @interface RootFirstTableView_C()<UITableViewDelegate>
 @property (nonatomic,strong) NSArray *myStatusData;
@@ -48,18 +49,19 @@
    AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
-    params[@"count"]=@2;
+    params[@"count"]=@12;
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLogs(@"成功了~~%@",responseObject);
         
-        NSMutableArray *statu_M =[NSMutableArray array];
-        NSArray *arrs=responseObject[@"statuses"];
-        for (NSDictionary *dict in arrs) {
-            myStatus_Model *model=[myStatus_Model initInstance:dict];
-            [statu_M addObject:model ];
-        }
-        self.myStatusData=statu_M;
+//        NSMutableArray *statu_M =[NSMutableArray array];
+//        NSArray *arrs=responseObject[@"statuses"];
+//        for (NSDictionary *dict in arrs) {
+//             myStatus_Model *model=[myStatus_Model objectWithKeyValues:dict];
+//            [statu_M addObject:model ];
+//        }
+//        self.myStatusData=statu_M;
         
+        self.myStatusData=[myStatus_Model objectArrayWithKeyValuesArray:responseObject[@"statuses"]];//responseObject是字典
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
