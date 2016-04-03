@@ -7,6 +7,12 @@
 //
 
 #import "myStatusCell.h"
+#import "myStatusFrame.h"
+#import "myStatus_Model.h"
+#import "myUser_Model.h"
+#import "UIImageView+WebCache.h"
+#import "UIImage+StringImageNamed.h"
+
 @interface myStatusCell()
 /** 顶部的view  */
 @property (nonatomic,weak) UIImageView *topView;
@@ -63,7 +69,7 @@
 }
 /** 原创微博内部 子控件  */
 -(void)setupOriginalSubviews{
-   UIImageView *topView= [[UIImageView alloc] init];
+    UIImageView *topView= [[UIImageView alloc] init];
     [self.contentView addSubview:topView];
     self.topView=topView;
     
@@ -82,26 +88,31 @@
     
     /** 5昵称         */
     UILabel *nameLabel= [[UILabel alloc] init];
+    nameLabel.font=statusNameFont;
     [self.topView addSubview:nameLabel];
     self.nameLabel=nameLabel;
     /** 6时间         */
     UILabel *timeLabel= [[UILabel alloc] init];
+    timeLabel.font=statusTimeFont;
     [self.topView addSubview:timeLabel];
     self.timeLabel=timeLabel;
     /** 7来源         */
     UILabel *sourceLabel= [[UILabel alloc] init];
+    sourceLabel.font=statusSourceFont;
     [self.topView addSubview:sourceLabel];
     self.sourceLabel=sourceLabel;
     /** 8正文 内容         */
     UILabel *contentLabel= [[UILabel alloc] init];
-    [self.contentLabel addSubview:contentLabel];
+    [self.topView addSubview:contentLabel];
+    contentLabel.font=statusNameFont;
+    contentLabel.numberOfLines=0;//换行
     self.contentLabel=contentLabel;
 }
 
 /** 转发:::::: 微博 内部 子控件  */
 -(void)setupRetweetSubviews{
     
-        /** 转发的:::5父控件        */
+    /** 转发的:::5父控件        */
     UIImageView *retweetView= [[UIImageView alloc] init];
     [self.topView addSubview:retweetView];
     self.retweetView=retweetView;
@@ -124,7 +135,60 @@
 
 /** 添加 微博的工具条  */
 -(void )setupStatusToolBar{
+    UIImageView *statusToolbar=[[UIImageView alloc ] init];
+    [self.contentView addSubview:statusToolbar];
+    self.statusToolBar=statusToolbar;
+}
+/**  模型数据 Frame  */
+-(void)setStatusFrame:(myStatusFrame *)statusFrame{
+    _statusFrame=statusFrame;
     
+    //原创微博内部 子控件
+    [self setupOriginalData];
+    //转发的 微博 内部 子控件
+    [self setupRetweetData];
+    
+}
+
+-(void)setupOriginalData{
+    myStatus_Model *status=self.statusFrame.status;
+    myUser_Model *user=status.user;
+    
+    self.topView.frame=self.statusFrame.topViewF;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithNamed:@"avatar_default_small"]];
+    self.iconView.frame=self.statusFrame.iconViewF;
+    //昵称
+    self.nameLabel.text=user.name;
+    self.nameLabel.frame =self.statusFrame.nameLabelF;
+    //vip
+    if(user.isVip){
+        self.vipView.hidden=NO;
+        self.vipView.image=[UIImage imageWithNamed:@"common_icon_membership"];
+        self.vipView.frame=self.statusFrame.vipViewF;
+    }
+    else {
+        self.vipView.hidden=YES;
+    }
+    //时间
+    self.timeLabel.text=status.created_at;
+    self.timeLabel.frame=self.statusFrame.timeLabelF;
+    //来源
+    self.sourceLabel.text=status.source;
+    self.sourceLabel.frame=self.statusFrame.sourceLabelF;
+    //正文
+    self.contentLabel.text=status.text;
+    self.contentLabel.frame=self.statusFrame.contentLabelF;
+    
+}
+-(void)setupRetweetData{
+    
+}
+
++(instancetype)cellWithTableView:(UITableView *)tableView{
+    static NSString *cells=@"cell";
+    myStatusCell *cell=[tableView dequeueReusableCellWithIdentifier:cells];
+    if(cell==nil)cell=[[myStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cells];
+    return cell;
 }
 @end
 

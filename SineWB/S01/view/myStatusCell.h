@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class  myStatusFrame;
 @interface myStatusCell : UITableViewCell
+/**  myStatusFrame 类的    */
+@property (nonatomic,strong) myStatusFrame *statusFrame;
++(instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end

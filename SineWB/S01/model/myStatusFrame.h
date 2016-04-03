@@ -5,7 +5,10 @@
 //  Created by scuplt on 16-4-1.
 //  Copyright (c) 2016年 Scuplt0413. All rights reserved.
 //
-
+/**  这些字体宏,只能放在 .h中   */
+#define statusNameFont [UIFont systemFontOfSize:15]
+#define statusTimeFont [UIFont systemFontOfSize:12]
+#define statusSourceFont [UIFont systemFontOfSize:12]
 #import <Foundation/Foundation.h>
 @class myStatus_Model;
 
@@ -45,7 +48,7 @@
 @property (nonatomic,assign,readonly)CGRect statusToolBarF;
 
 /** cell的高度        */
-@property (nonatomic,assign,readonly)CGRect cellHeight;
+@property (nonatomic,assign,readonly)CGFloat cellHeight;
 @end
 
 
