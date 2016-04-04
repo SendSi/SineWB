@@ -10,14 +10,16 @@
 #define statusTimeFont [UIFont systemFontOfSize:12]
 #define statusSourceFont [UIFont systemFontOfSize:12]
 #define statusContentFont [UIFont systemFontOfSize:12]
+
 #define statusCellBorder 5
+#define statusTableBorder 5
 
 #define retweet_statusNameFont [UIFont systemFontOfSize:15]
 #define retweet_statusTimeFont [UIFont systemFontOfSize:12]
 #define retweet_statusSourceFont [UIFont systemFontOfSize:12]
 #define retweet_statusContentFont [UIFont systemFontOfSize:12]
 
-#define statusTableBorder 5
+
 
 #import <Foundation/Foundation.h>
 @class myStatus_Model;

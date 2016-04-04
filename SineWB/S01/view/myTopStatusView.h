@@ -1,5 +1,5 @@
 //
-//  myReweetStatusView.h
+//  myTopStatusView.h
 //  SineWB
 //
 //  Created by scuplt on 16-4-4.
@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class myStatusFrame;
+@class  myStatusFrame;
+@interface myTopStatusView : UIImageView
 
-
-@interface myReweetStatusView : UIImageView
-
+/**  重写statusFrame  frame的值-->仅是头部   */
 @property (nonatomic,strong) myStatusFrame *statusFrame;
-
 @end

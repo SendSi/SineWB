@@ -23,8 +23,12 @@
 
 /**  微博id   */
 @property (nonatomic,copy) NSString *idstr;
-/**   微博的  单张配图   */
-@property (copy,nonatomic) NSString *thumbnail_pic;
+///**   微博的  单张配图   */
+//@property (copy,nonatomic) NSString *thumbnail_pic;
+
+/**   微博的   配图们ss   */
+@property (strong,nonatomic) NSArray *pic_urls;
+
 
 /**  转发数  */
 @property (nonatomic,assign) int reposts_count;

@@ -17,7 +17,7 @@
 -(void)setStatus:(myStatus_Model *)status{
     _status=status;
     //cell宽度
-    CGFloat cellW=[UIScreen mainScreen] .bounds.size.width;
+    CGFloat cellW=[UIScreen mainScreen] .bounds.size.width-2*statusTableBorder;
     
     CGFloat topViewW=cellW;
     CGFloat topViewX=0;
@@ -68,7 +68,7 @@
     _contentLabelF=CGRectMake(contentLabelX, contentLabelY, contentLabelSize.width, contentLabelSize.height);
     
     //微博配图
-    if(status.thumbnail_pic){
+    if(status.pic_urls.count>0){
         CGFloat thumX=contentLabelX;
         CGFloat thumY=CGRectGetMaxY(_contentLabelF)+statusCellBorder;
         CGFloat thumWH=70;
@@ -98,7 +98,7 @@
         
         
            //被转发的 配图
-        if(status.retweeted_status.thumbnail_pic){
+        if(status.retweeted_status.pic_urls.count>0){
             CGFloat retweet_PhotoViewWH = 70;
             CGFloat retweet_PhotoViewX = retweet_contentLabelX;
             CGFloat retweet_PhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + statusCellBorder;
@@ -114,7 +114,7 @@
         topViewH=CGRectGetMaxY(_retweetViewF);
     }//被转发的
     else { // 没有转发微博...主创
-        if(status.thumbnail_pic){
+        if(status.pic_urls.count>0){
             topViewH=CGRectGetMaxY(_photoViewF);
         }
         else{

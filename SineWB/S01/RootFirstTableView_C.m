@@ -19,6 +19,7 @@
 #import "MJExtension.h"
 #import "myStatusFrame.h"
 #import "myStatusCell.h"
+#import "myPhotos_model.h"
 
 @interface RootFirstTableView_C()<UITableViewDelegate>
 @property (nonatomic,strong) NSArray *myStatusFrame;
@@ -26,6 +27,8 @@
 
 
 @implementation RootFirstTableView_C
+
+
 
 -(void)viewDidLoad
 {
@@ -42,10 +45,11 @@
     AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
-    params[@"count"]=@7;
+    params[@"count"]=@5;
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    // NSLogs(@"成功了~~%@",responseObject);
+
     NSArray *statusArrayResponse=[myStatus_Model objectArrayWithKeyValuesArray:responseObject[@"statuses"]];//responseObject是字典
+   
         NSMutableArray *statusFrameArray=[NSMutableArray array];
         for(myStatus_Model *status in statusArrayResponse)
         {
@@ -77,6 +81,7 @@
     
     self.tableView.backgroundColor=myColor(226, 226, 226);
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, statusTableBorder, 0);
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
 }
 
 -(void)clickMyTop:(topButton *) tops{

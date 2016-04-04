@@ -9,8 +9,14 @@
 #import "myStatus_Model.h"
 #import "myUser_Model.h"
 #import "NSDate+myDate.h"
+#import "MJExtension.h"
+#import "myPhotos_model.h"
 
 @implementation myStatus_Model
+
+-(NSDictionary *)objectClassInArray{
+    return @{@"pic_urls":[myPhotos_model class]};
+}
 
 
 -(void)setSource:(NSString *)source{
@@ -32,9 +38,9 @@
     // 2..判断微博发送时间 和 现在时间 的差距
     if (createdDate.isToday) { // 今天
         if (createdDate.deltaWithNow.hour >= 1) {
-            return [NSString stringWithFormat:@"%d小时前", createdDate.deltaWithNow.hour];
+            return [NSString stringWithFormat:@"%d小时前", (int)createdDate.deltaWithNow.hour];
         } else if (createdDate.deltaWithNow.minute >= 1) {
-            return [NSString stringWithFormat:@"%d分钟前", createdDate.deltaWithNow.minute];
+            return [NSString stringWithFormat:@"%d分钟前", (int)createdDate.deltaWithNow.minute];
         } else {
             return @"刚刚";
         }

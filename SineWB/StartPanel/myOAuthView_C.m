@@ -52,7 +52,7 @@
     
     //range长度有值,
     if(range.length){
-        int loc=range.location+range.length;
+        int loc=(int)(range.location+range.length);
         NSString *code=[urlStr substringFromIndex:loc];
         [self accessTokeWithCode:code];
     }

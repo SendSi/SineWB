@@ -37,10 +37,13 @@
         CGFloat badgeH=self.currentBackgroundImage.size.height;
         CGFloat badgeW=self.currentBackgroundImage.size.width;
         if (badgeValue.length>1) {//一定长度时,左右移
-            CGSize badgeSize=[badgeValue sizeWithFont:self.titleLabel.font];
-            //CGSize badgeSize=[badgeValue sizeWithAttributes];
+        
+            //CGSize badgeSize=[badgeValue sizeWithFont:self.titleLabel.font];
+            NSMutableDictionary *mydic=[NSMutableDictionary dictionary];
+            mydic[NSFontAttributeName]=self.titleLabel.font;
+            CGSize badgeSize=[badgeValue sizeWithAttributes:mydic];
             
-            badgeW=badgeSize.width+10;//
+            badgeW=badgeSize.width+10;
         }
         frame.size.width=badgeW;
         frame.size.height=badgeH;
