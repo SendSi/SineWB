@@ -22,13 +22,13 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad ];
-     [self setUpMyTabBar];
+    [self setUpMyTabBar];
     [self setUpAllChildController];
-   }
+}
 /**  mytabbar 初始化   */
 -(void)setUpMyTabBar{
     myTabBar_V *my_V=[[myTabBar_V alloc] init];
-   // my_V.backgroundColor=[UIColor redColor];
+    // my_V.backgroundColor=[UIColor redColor];
     my_V.frame=self.tabBar.bounds;
     [self.tabBar addSubview:my_V];
     self.myTabBar_Vs=my_V;
@@ -50,8 +50,8 @@
 
 -(void)setUpAllChildController{
     RootFirstTableView_C *first=[[RootFirstTableView_C alloc] init];
-    first.view.backgroundColor=[UIColor redColor];
-first.tabBarItem.badgeValue=@"12";
+    //    first.view.backgroundColor=[UIColor redColor];
+    first.tabBarItem.badgeValue=@"12";
     [self loadEventOneRootView_C:first and_title:@"首页" and_image:@"tabbar_home" and_pressImage:@"tabbar_home_selected" ];
     
     RootMessageTableView_C *message=[[RootMessageTableView_C alloc] init];
@@ -79,11 +79,11 @@ first.tabBarItem.badgeValue=@"12";
     else{
         view_C.tabBarItem.selectedImage=[UIImage imageWithNamed:pressImage] ;
     }
-
+    
     myNavigation_C *nav=[[myNavigation_C alloc] initWithRootViewController:view_C];
     [self addChildViewController:nav];
-
-//添加 tabBar内部的按钮--->myTabBar_V
+    
+    //添加 tabBar内部的按钮--->myTabBar_V
     [self.myTabBar_Vs loadViewShow:view_C.tabBarItem];
 }
 

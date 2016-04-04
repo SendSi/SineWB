@@ -16,8 +16,8 @@
 /**  用户 icon   */
 @property (nonatomic,copy) NSString *profile_image_url;
 
-/**    是否vip         */
-@property (nonatomic,assign ,getter=isVip) BOOL    *vip;
-
-
+/**    会员等级     */
+@property (nonatomic,assign) int  mbtype;
+/**         会员类型    */
+@property (nonatomic,assign) int    mbrank;
 @end

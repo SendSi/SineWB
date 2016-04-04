@@ -9,6 +9,16 @@
 #define statusNameFont [UIFont systemFontOfSize:15]
 #define statusTimeFont [UIFont systemFontOfSize:12]
 #define statusSourceFont [UIFont systemFontOfSize:12]
+#define statusContentFont [UIFont systemFontOfSize:12]
+#define statusCellBorder 5
+
+#define retweet_statusNameFont [UIFont systemFontOfSize:15]
+#define retweet_statusTimeFont [UIFont systemFontOfSize:12]
+#define retweet_statusSourceFont [UIFont systemFontOfSize:12]
+#define retweet_statusContentFont [UIFont systemFontOfSize:12]
+
+#define statusTableBorder 5
+
 #import <Foundation/Foundation.h>
 @class myStatus_Model;
 
@@ -40,7 +50,7 @@
 /** 转发的:::昵称         */
 @property (nonatomic,assign,readonly)CGRect retweetNameLabelF;
 /** 转发的:::配图        */
-@property (nonatomic,assign,readonly)CGRect retweetPhotoLabelF;
+@property (nonatomic,assign,readonly)CGRect retweetPhotoF;
 /** 转发的:::正文 内容         */
 @property (nonatomic,assign,readonly)CGRect retweetContentLabelF;
 

@@ -30,7 +30,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-
     
     [self setupNavTop];//设置top 的 nav 一栏
     
@@ -43,9 +42,9 @@
     AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
-    params[@"count"]=@5;
+    params[@"count"]=@7;
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-     //   NSLogs(@"成功了~~%@",responseObject);
+    // NSLogs(@"成功了~~%@",responseObject);
     NSArray *statusArrayResponse=[myStatus_Model objectArrayWithKeyValuesArray:responseObject[@"statuses"]];//responseObject是字典
         NSMutableArray *statusFrameArray=[NSMutableArray array];
         for(myStatus_Model *status in statusArrayResponse)
@@ -75,6 +74,9 @@
     [top addTarget:self action:@selector(clickMyTop:) forControlEvents:UIControlEventTouchUpInside];
     top.tag=1;
     self.navigationItem.titleView=top;
+    
+    self.tableView.backgroundColor=myColor(226, 226, 226);
+    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, statusTableBorder, 0);
 }
 
 -(void)clickMyTop:(topButton *) tops{
@@ -109,7 +111,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     myStatusFrame *statusFrame=self.myStatusFrame[indexPath.row];
-    NSLog(@"CCC_cellHeight=%f",statusFrame.cellHeight);
+  //  NSLog(@"CCC_cellHeight=%f",statusFrame.cellHeight);
     return statusFrame.cellHeight;
 }
 

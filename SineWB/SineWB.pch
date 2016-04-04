@@ -16,6 +16,7 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "UIImage+StringImageNamed.h"
 
 //写代码
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]>=7.0)
