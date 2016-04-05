@@ -22,34 +22,59 @@
 #import "myPhotos_model.h"
 
 @interface RootFirstTableView_C()<UITableViewDelegate>
-@property (nonatomic,strong) NSArray *myStatusFrame;
+@property (nonatomic,strong) NSMutableArray *myStatusFrame;
+/**    UIRefreshControl         */
+@property (nonatomic,weak) UIRefreshControl    *myRefresh;
+
+/**    topButton         */
+@property (nonatomic,weak) topButton    *titleButton;
 @end
 
 
 @implementation RootFirstTableView_C
-
-
+-(NSMutableArray *)myStatusFrame{
+    if(_myStatusFrame==nil){
+        _myStatusFrame=[NSMutableArray array];
+    }
+    return _myStatusFrame;
+}
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self setupNavTop];//设置top 的 nav 一栏
-    
-    [self setupStatusData];
+    //设置 刷新 控件
+    [self setupRefreshView];
+    //设置top 的 nav 一栏
+    [self setupNavTop];
+//    //加载微博数据
+//    [self setupStatusData];
+    //设置头部的 user 名字
+    [self getUser];
 }
 
-/**  网页中的数据   */
--(void)setupStatusData{
+-(void) setupRefreshView{
+    UIRefreshControl *reControl=[[UIRefreshControl alloc ] init];
+    [reControl addTarget:self action:@selector(RefreshControlChange:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:reControl];
+    self.myRefresh=reControl;
+    [reControl beginRefreshing];//自动进入刷新状态  不会触发 监听方法
+    [self RefreshControlChange:reControl];
+    }
+-(void)RefreshControlChange:(UIRefreshControl *)contr{
     //创建mgr
     AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
     params[@"count"]=@20;
+    if(self.myStatusFrame.count>0){
+    myStatusFrame *statusFrame=self.myStatusFrame[0];//这样写,跟加载 新数据相关
+    params[@"since_id"]=statusFrame.status.idstr;
+    }
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
-    NSArray *statusArrayResponse=[myStatus_Model objectArrayWithKeyValuesArray:responseObject[@"statuses"]];//responseObject是字典
-   
+        
+        NSArray *statusArrayResponse=[myStatus_Model objectArrayWithKeyValuesArray:responseObject[@"statuses"]];//responseObject是字典
+        
         NSMutableArray *statusFrameArray=[NSMutableArray array];
         for(myStatus_Model *status in statusArrayResponse)
         {
@@ -57,12 +82,61 @@
             statusFram.status=status;
             [statusFrameArray addObject:statusFram];
         }
-        self.myStatusFrame=statusFrameArray;
+
+        //加载新数据.
+        //1.新建一个数据数组
+        NSMutableArray *temparray=[NSMutableArray array];//用空的A先加载新数据B,再加载旧数据C...C就等于A咯
+        [temparray addObjectsFromArray:statusFrameArray];//加载新的数据
+        [temparray addObjectsFromArray:self.myStatusFrame];//加载原来的数据
+        self.myStatusFrame=temparray;
         [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.myRefresh endRefreshing];
         
+        [self showNewStatuCount:statusFrameArray.count];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          [self.myRefresh endRefreshing];
     }];
-    
+}
+
+-(void)getUser{
+    //创建mgr
+    AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    params[@"access_token"]=[getSetAccountTool getAccount].access_token;
+    params[@"uid"]=@([getSetAccountTool getAccount].uid);
+
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        myUser_Model *user=[myUser_Model objectWithKeyValues:responseObject];
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+       
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      
+    }];
+}
+
+
+-(void)showNewStatuCount:(NSInteger) counts{
+    UIButton *btn=[[UIButton alloc] init];
+    [self.navigationController.view insertSubview:btn  belowSubview:self.navigationController.navigationBar];
+    btn.userInteractionEnabled=NO;
+    [btn setBackgroundImage:[UIImage resizedImageWithName:@"timeline_new_status_background"] forState:UIControlStateNormal];
+    if(counts>0){
+        [btn setTitle:[NSString stringWithFormat:@"有%ld微博",counts] forState:UIControlStateNormal];
+    }
+    else {
+        [btn setTitle:@"没新的微博" forState:UIControlStateNormal];
+    }
+    CGFloat btnH=30,btnY=64-btnH,btnW=self.view.frame.size.width,btnX=0;
+    btn.frame=CGRectMake(btnX, btnY, btnW, btnH);
+    [UIView animateWithDuration:1.0 animations:^{
+        btn.transform=CGAffineTransformMakeTranslation(0, btnH+2);
+    } completion:^(BOOL finished) {
+        [UIView animateKeyframesWithDuration:0.7 delay:0.7 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
+            btn.transform=CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [btn removeFromSuperview];
+        }];
+    }];
 }
 
 /**  top nav 一栏   */
@@ -71,8 +145,9 @@
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem myBarButtonItem_pic:@"navigationbar_pop" and_HightPic:@"navigationbar_pop_highlighted" and_target:self and_action:@selector(ClickPop)];
     
     topButton *top=[[topButton alloc] init];
-    [top setTitle:@"helloworld" forState:UIControlStateNormal];
+    [top setTitle:@"ok" forState:UIControlStateNormal];
     [top setImage:[UIImage imageWithNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    self.titleButton=top;
     [UIImage imageWithNamed:@"navigationbar_arrow_up"];
     top.frame=CGRectMake(0, 0, 100, 30);
     [top addTarget:self action:@selector(clickMyTop:) forControlEvents:UIControlEventTouchUpInside];
@@ -80,12 +155,11 @@
     self.navigationItem.titleView=top;
     
     self.tableView.backgroundColor=myColor(226, 226, 226);
-    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, statusTableBorder, 0);
+    //self.tableView.contentInset=UIEdgeInsetsMake(0, 0, statusTableBorder, 0);
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
 }
 
 -(void)clickMyTop:(topButton *) tops{
-    
     if(tops.tag==1){
         [tops setImage:[UIImage imageWithNamed:@"navigationbar_arrow_down"]  forState:UIControlStateNormal];   tops.tag=0;
     }
@@ -107,11 +181,9 @@
     return  self.myStatusFrame.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     myStatusCell *cell=[myStatusCell cellWithTableView:tableView];
     //传递cell 模型
     cell.statusFrame=self.myStatusFrame[indexPath.row];
-
     return  cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -119,66 +191,6 @@
   //  NSLog(@"CCC_cellHeight=%f",statusFrame.cellHeight);
     return statusFrame.cellHeight;
 }
-
-/*
- {
- "statuses": [
- {
- "created_at": "Tue May 31 17:46:55 +0800 2011",
- "id": 11488058246,
- "text": "求关注。"，
- "source": "<a href="http://weibo.com" rel="nofollow">新浪微博</a>",
- "favorited": false,
- "truncated": false,
- "in_reply_to_status_id": "",
- "in_reply_to_user_id": "",
- "in_reply_to_screen_name": "",
- "geo": null,
- "mid": "5612814510546515491",
- "reposts_count": 8,
- "comments_count": 9,
- "annotations": [],
- "user": {
- "id": 1404376560,
- "screen_name": "zaku",
- "name": "zaku",
- "province": "11",
- "city": "5",
- "location": "北京 朝阳区",
- "description": "人生五十年，乃如梦如幻；有生斯有死，壮士复何憾。",
- "url": "http://blog.sina.com.cn/zaku",
- "profile_image_url": "http://tp1.sinaimg.cn/1404376560/50/0/1",
- "domain": "zaku",
- "gender": "m",
- "followers_count": 1204,
- "friends_count": 447,
- "statuses_count": 2908,
- "favourites_count": 0,
- "created_at": "Fri Aug 28 00:00:00 +0800 2009",
- "following": false,
- "allow_all_act_msg": false,
- "remark": "",
- "geo_enabled": true,
- "verified": false,
- "allow_all_comment": true,
- "avatar_large": "http://tp1.sinaimg.cn/1404376560/180/0/1",
- "verified_reason": "",
- "follow_me": false,
- "online_status": 0,
- "bi_followers_count": 215
- }
- },
- ...
- ],
- */
-
-
-
-
-
-
-
-
 @end
 
 
