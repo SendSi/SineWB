@@ -13,6 +13,7 @@
 #import "myStatusFrame.h"
 #import "myReweetStatusView.h"
 #import "myPhotos_model.h"
+#import "myPhotos_View.h"
 
 @interface myTopStatusView()
 /**头像         */
@@ -20,7 +21,7 @@
 /** *会员图标         */
 @property (nonatomic,weak) UIImageView    *vipView;
 /** 配图         */
-@property (nonatomic,weak) UIImageView    *photoView;
+@property (nonatomic,weak) myPhotos_View    *photosView;
 
 /** 5昵称         */
 @property (nonatomic,weak) UILabel    *nameLabel;
@@ -41,9 +42,10 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self=[super initWithFrame:frame];
     if(self){
+        self.userInteractionEnabled=YES;
         self.image=[UIImage resizedImageWithName:@"timeline_card_top_background"];
         self.highlightedImage=[UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
-        
+
         
         UIImageView *iconView= [[UIImageView alloc] init];
         [self addSubview:iconView];
@@ -55,9 +57,9 @@
         self.vipView=vipView;
         vipView.contentMode=UIViewContentModeCenter;
         
-        UIImageView *photoView= [[UIImageView alloc] init];
-        [self addSubview:photoView];
-        self.photoView=photoView;
+        myPhotos_View *photosView= [[myPhotos_View alloc] init];
+        [self addSubview:photosView];
+        self.photosView=photosView;
         
         
         /** 5昵称         */
@@ -146,13 +148,17 @@
     
     //微博图片
     if(status.pic_urls.count>0){
-        self.photoView.frame=self.statusFrame.photoViewF;
-        myPhotos_model *photoModel=status.pic_urls[0];
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photoModel.thumbnail_pic] placeholderImage:[UIImage imageWithNamed:@"avatar_default_small"]];
-        self.photoView.hidden=NO;
+//        self.photoView.frame=self.statusFrame.photoViewF;
+//        myPhotos_model *photoModel=status.pic_urls[0];
+//        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photoModel.thumbnail_pic] placeholderImage:[UIImage imageWithNamed:@"avatar_default_small"]];
+//        self.photoView.hidden=NO;
+        
+        self.photosView.hidden = NO;
+        self.photosView.frame = self.statusFrame.photoViewF;
+        self.photosView.photos = status.pic_urls;
     }
     else{
-        self.photoView.hidden=YES;
+        self.photosView.hidden=YES;
     }
     //转发微博
     [self setupRetweet_Data];

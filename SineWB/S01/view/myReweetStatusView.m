@@ -12,12 +12,13 @@
 #import "myStatusFrame.h"
 #import "UIImageView+WebCache.h"
 #import  "myPhotos_model.h"
+#import "myPhotos_View.h"
 
 @interface myReweetStatusView()
 /** 转发的:::昵称         */
 @property (nonatomic,weak) UILabel    *retweetNameLabel;
 /** 转发的:::配图        */
-@property (nonatomic,weak) UIImageView    *retweetPhoto;
+@property (nonatomic,weak) myPhotos_View    *retweetPhoto;
 /** 转发的:::正文 内容         */
 @property (nonatomic,weak) UILabel    *retweetContentLabel;
 
@@ -28,6 +29,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self=[super initWithFrame:frame];
     if(self){
+        self.userInteractionEnabled=YES;
             self.image=[UIImage resizedImageWithName:@"timeline_retweet_background" and_left:0.9 and_top:0.5];
         
         /** 转发的:::昵称         */
@@ -39,9 +41,9 @@
         retweetNameLabel.backgroundColor=[UIColor clearColor];
         
         /** 转发的:::配图        */
-        UIImageView *retweetPhotoLabel= [[UIImageView alloc] init];
-        [self addSubview:retweetPhotoLabel];
-        self.retweetPhoto=retweetPhotoLabel;
+        myPhotos_View *retweetPhoto= [[myPhotos_View alloc] init];
+        [self addSubview:retweetPhoto];
+        self.retweetPhoto=retweetPhoto;
         
         /** 转发的:::正文 内容         */
         UILabel *retweetContentLabel= [[UILabel alloc] init];
@@ -71,10 +73,14 @@
     
     // 4.配图
     if (retweet_status.pic_urls.count>0) {
+//        self.retweetPhoto.hidden = NO;
+//        self.retweetPhoto.frame = self.statusFrame.retweetPhotoF;
+//        myPhotos_model *modelPhoto=retweet_status.pic_urls[0];
+//        [self.retweetPhoto sd_setImageWithURL:[NSURL URLWithString:modelPhoto.thumbnail_pic] placeholderImage:[UIImage imageWithNamed:@"timeline_image_placeholder"]];
+        
         self.retweetPhoto.hidden = NO;
         self.retweetPhoto.frame = self.statusFrame.retweetPhotoF;
-        myPhotos_model *modelPhoto=retweet_status.pic_urls[0];
-        [self.retweetPhoto sd_setImageWithURL:[NSURL URLWithString:modelPhoto.thumbnail_pic] placeholderImage:[UIImage imageWithNamed:@"timeline_image_placeholder"]];
+        self.retweetPhoto.photos = retweet_status.pic_urls;
     } else {
         self.retweetPhoto.hidden = YES;
     }

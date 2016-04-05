@@ -38,12 +38,11 @@
 /** topView UI的 显示  */
 -(void)setupTopView_UI{
     self.selectedBackgroundView=[[UIView alloc] init];
+    self.backgroundColor=[UIColor clearColor];//当整个背景都有白色
     
     myTopStatusView *topView= [[myTopStatusView alloc] init];
     [self.contentView addSubview:topView];
     self.topView=topView;
-    topView.image=[UIImage resizedImageWithName:@"timeline_card_top_background"];
-    topView.highlightedImage=[UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
 }
 
 

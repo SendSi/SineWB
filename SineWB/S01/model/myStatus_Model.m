@@ -20,11 +20,11 @@
 
 
 -(void)setSource:(NSString *)source{
-    int loc =(int) [source rangeOfString:@">"].location + 1;
-    int length=(int)[source rangeOfString:@"</"].location-loc;
-    source=[source substringWithRange:NSMakeRange(loc, length)];
-    _source=[NSString stringWithFormat:@"来自%@",source];
-    
+    if(source==nil)return;
+//    int loc =(int) [source rangeOfString:@">"].location + 1;
+//    int length=(int)[source rangeOfString:@"</"].location-loc;
+//    source=[source substringWithRange:NSMakeRange(loc, length)];
+//    _source=[NSString stringWithFormat:@"来自%@",source];
 }
 
 - (NSString *)created_at

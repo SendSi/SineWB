@@ -5,12 +5,10 @@
 //  Created by scuplt on 16-4-1.
 //  Copyright (c) 2016年 Scuplt0413. All rights reserved.
 //
-
-
-
 #import "myUser_Model.h"
 #import "myStatus_Model.h"
 #import "myStatusFrame.h"
+#import "myPhotos_View.h"
 
 @implementation myStatusFrame
 
@@ -69,10 +67,10 @@
     
     //微博配图
     if(status.pic_urls.count>0){
-        CGFloat thumX=contentLabelX;
-        CGFloat thumY=CGRectGetMaxY(_contentLabelF)+statusCellBorder;
-        CGFloat thumWH=70;
-        _photoViewF=(CGRect){{thumX,thumY},{thumWH,thumWH}};
+        CGSize photosViewSize = [myPhotos_View photosViewSizeWithPhotosCount:status.pic_urls.count];
+        CGFloat photosViewX = contentLabelX;
+        CGFloat photosViewY = CGRectGetMaxY(_contentLabelF) + statusCellBorder;
+        _photoViewF = CGRectMake(photosViewX, photosViewY, photosViewSize.width, photosViewSize.height);
     }
     
     //被转发微博
@@ -99,10 +97,16 @@
         
            //被转发的 配图
         if(status.retweeted_status.pic_urls.count>0){
-            CGFloat retweet_PhotoViewWH = 70;
-            CGFloat retweet_PhotoViewX = retweet_contentLabelX;
-            CGFloat retweet_PhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + statusCellBorder;
-            _retweetPhotoF = CGRectMake(retweet_PhotoViewX, retweet_PhotoViewY, retweet_PhotoViewWH, retweet_PhotoViewWH);
+//            CGFloat retweet_PhotoViewWH = 70;
+//            CGFloat retweet_PhotoViewX = retweet_contentLabelX;
+//            CGFloat retweet_PhotoViewY = CGRectGetMaxY(_retweetContentLabelF) + statusCellBorder;
+//            _retweetPhotoF = CGRectMake(retweet_PhotoViewX, retweet_PhotoViewY, retweet_PhotoViewWH, retweet_PhotoViewWH);
+//            retweViewH = CGRectGetMaxY(_retweetPhotoF);
+            
+            CGSize retweetPhotosViewSize = [myPhotos_View photosViewSizeWithPhotosCount:(int)status.retweeted_status.pic_urls.count];
+            CGFloat retweetPhotosViewX = retweet_contentLabelX;
+            CGFloat retweetPhotosViewY = CGRectGetMaxY(_retweetContentLabelF) + statusCellBorder;
+            _retweetPhotoF = CGRectMake(retweetPhotosViewX, retweetPhotosViewY, retweetPhotosViewSize.width, retweetPhotosViewSize.height);
             
             retweViewH = CGRectGetMaxY(_retweetPhotoF);
         } else { // 没有配图
