@@ -14,6 +14,7 @@
 #import "getSetAccountTool.h"
 #import "OAuth_Model.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -29,6 +30,7 @@
     NSLog(@"%@",paths);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+         //   self.window.rootViewController=[[startOncePanel alloc] init];
     [self.window makeKeyAndVisible];
     
     //1.先判断 有无存储账号信息
@@ -38,10 +40,6 @@
     }else{
         self.window.rootViewController=[[myOAuthView_C alloc] init];
     }
-    
-    
-    
-    
     
     return YES;
 }

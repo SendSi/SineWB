@@ -40,7 +40,7 @@
     
     NSString *key = @"CFBundleVersion";
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-    NSLogs(@"版本号=%@",currentVersion);
+  //  NSLogs(@"版本号=%@",currentVersion);
     
     versions_model *mel=[self getverisoin_model];
     if(mel==nil){

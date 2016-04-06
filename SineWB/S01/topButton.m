@@ -8,7 +8,7 @@
 
 #import "topButton.h"
 #import "UIImage+StringImageNamed.h"
-#define iconWidth 20
+
 
 @implementation topButton
 -(instancetype)initWithFrame:(CGRect)frame{

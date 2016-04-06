@@ -55,6 +55,7 @@
         int loc=(int)(range.location+range.length);
         NSString *code=[urlStr substringFromIndex:loc];
         [self accessTokeWithCode:code];
+        return NO;
     }
     return YES;
 }
@@ -70,17 +71,6 @@
     prams[@"code"]=code;
     prams[@"redirect_uri"]=@"https://www.hao123.com/";
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:prams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //        请求成功,将字典转为model
-        //        "access_token" = "2.00jCrH4D09j_nX93dfdbed03LyFqfC";
-        //        "expires_in" = 157679999;
-        //        "remind_in" = 157679999;
-        //        uid = 3090126421;
-        
-        
-        //        NSString *doc=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        //        NSString *file=[doc stringByAppendingPathComponent:@"oauthData.data"];//记得 在model 写 哪些要 解档 归档
-        //        [NSKeyedArchiver archiveRootObject:model toFile:file];
-        
         
         OAuth_Model *model=[OAuth_Model initInstance:responseObject];//responseObject是字典类型
         [getSetAccountTool setAccount:model];//把 模型 保存到 data中

@@ -5,9 +5,6 @@
 //  Created by scuplt on 16-4-4.
 //  Copyright (c) 2016年 Scuplt0413. All rights reserved.
 //
-#define  myPhotoH 70
-#define  myPhotoW 70
-#define myPhotoMargin 10
 #import "myPhotos_View.h"
 #import "myPhoto_View.h"
 #import "MJPhotoBrowser.h"

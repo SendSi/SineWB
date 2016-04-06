@@ -20,14 +20,20 @@
 #import "myStatusFrame.h"
 #import "myStatusCell.h"
 #import "myPhotos_model.h"
+#import "MJRefresh.h"
 
-@interface RootFirstTableView_C()<UITableViewDelegate>
+@interface RootFirstTableView_C()<UITableViewDelegate,MJRefreshBaseViewDelegate>
 @property (nonatomic,strong) NSMutableArray *myStatusFrame;
 /**    UIRefreshControl         */
 @property (nonatomic,weak) UIRefreshControl    *myRefresh;
 
 /**    topButton         */
 @property (nonatomic,weak) topButton    *titleButton;
+
+/**    mjRef         */
+@property (nonatomic,weak) MJRefreshBaseView    *footView;
+/**    mjRef         */
+@property (nonatomic,weak) MJRefreshBaseView    *headView;
 @end
 
 
@@ -47,29 +53,53 @@
     [self setupRefreshView];
     //设置top 的 nav 一栏
     [self setupNavTop];
-//    //加载微博数据
-//    [self setupStatusData];
+    
     //设置头部的 user 名字
     [self getUser];
+ 
+}
+/** 刷新 控件   */
+-(void) setupRefreshView{
+    MJRefreshHeaderView *headView=[MJRefreshHeaderView header];
+    headView.scrollView =self.tableView;
+    self.headView=headView;
+    headView.delegate=self;
+    [headView beginRefreshing];
+    
+    MJRefreshFooterView  *footer=[MJRefreshFooterView footer];
+    footer.scrollView=self.tableView;
+    self.footView=footer;
+    footer.delegate=self;
+//    footer.beginRefreshingBlock=^(MJRefreshBaseView *refreshView){
+//            NSLogs(@"2454");
+//        };//使用block,监听方法
+}
+#pragma mark -mjRefresh代理中---加载 新 旧 的数据
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView{
+    if([refreshView isKindOfClass:[MJRefreshHeaderView class]])
+    {
+        [self loadTopNewData];
+    }
+    else {
+        [self loadBottomOldData];
+    }
+}
+-(void)dealloc{
+    [self.footView free];
+    [self.headView free];
 }
 
--(void) setupRefreshView{
-    UIRefreshControl *reControl=[[UIRefreshControl alloc ] init];
-    [reControl addTarget:self action:@selector(RefreshControlChange:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:reControl];
-    self.myRefresh=reControl;
-    [reControl beginRefreshing];//自动进入刷新状态  不会触发 监听方法
-    [self RefreshControlChange:reControl];
-    }
--(void)RefreshControlChange:(UIRefreshControl *)contr{
+-(void)loadBottomOldData{
     //创建mgr
     AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
-    params[@"count"]=@20;
+    params[@"count"]=@5;
     if(self.myStatusFrame.count>0){
-    myStatusFrame *statusFrame=self.myStatusFrame[0];//这样写,跟加载 新数据相关
-    params[@"since_id"]=statusFrame.status.idstr;
+        myStatusFrame *statusFrame=[self.myStatusFrame  lastObject];//得到最后 一条id-->lastObject
+        //在相同的数据.所以 -1
+        long long maxId=[statusFrame.status.idstr longLongValue]-1;
+        params[@"max_id"]=@(maxId);
     }
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -82,7 +112,39 @@
             statusFram.status=status;
             [statusFrameArray addObject:statusFram];
         }
-
+        
+        //加载 旧 数据.
+        [self.myStatusFrame addObjectsFromArray:statusFrameArray];
+        
+        [self.tableView reloadData];
+        [self.footView endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.footView endRefreshing];
+    }];
+}
+/** 加载 头部 新数据  */
+-(void)loadTopNewData{
+    //创建mgr
+    AFHTTPRequestOperationManager *mgr= [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    params[@"access_token"]=[getSetAccountTool getAccount].access_token;
+    params[@"count"]=@5;
+    if(self.myStatusFrame.count>0){
+        myStatusFrame *statusFrame=self.myStatusFrame[0];//这样写,跟加载 新数据相关
+        params[@"since_id"]=statusFrame.status.idstr;
+    }
+    [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *statusArrayResponse=[myStatus_Model objectArrayWithKeyValuesArray:responseObject[@"statuses"]];//responseObject是字典
+        
+        NSMutableArray *statusFrameArray=[NSMutableArray array];
+        for(myStatus_Model *status in statusArrayResponse)
+        {
+            myStatusFrame *statusFram=[[myStatusFrame alloc] init];
+            statusFram.status=status;
+            [statusFrameArray addObject:statusFram];
+        }
+        
         //加载新数据.
         //1.新建一个数据数组
         NSMutableArray *temparray=[NSMutableArray array];//用空的A先加载新数据B,再加载旧数据C...C就等于A咯
@@ -90,11 +152,11 @@
         [temparray addObjectsFromArray:self.myStatusFrame];//加载原来的数据
         self.myStatusFrame=temparray;
         [self.tableView reloadData];
-        [self.myRefresh endRefreshing];
         
         [self showNewStatuCount:statusFrameArray.count];
+        [self.headView endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          [self.myRefresh endRefreshing];
+        [self.headView endRefreshing];
     }];
 }
 
@@ -104,13 +166,13 @@
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
     params[@"uid"]=@([getSetAccountTool getAccount].uid);
-
+    
     [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         myUser_Model *user=[myUser_Model objectWithKeyValues:responseObject];
         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
-       
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-      
+        
     }];
 }
 
@@ -188,7 +250,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     myStatusFrame *statusFrame=self.myStatusFrame[indexPath.row];
-  //  NSLog(@"CCC_cellHeight=%f",statusFrame.cellHeight);
+    //  NSLog(@"CCC_cellHeight=%f",statusFrame.cellHeight);
     return statusFrame.cellHeight;
 }
 @end

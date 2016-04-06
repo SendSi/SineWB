@@ -17,5 +17,5 @@
 -(BOOL) isThisYear;
 
 -(NSDateComponents *)deltaWithNow;
-
++ (NSString *) returnUploadTime:(NSDictionary *)dic;
 @end

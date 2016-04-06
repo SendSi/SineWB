@@ -5,7 +5,7 @@
 //  Created by scuplt on 16-pageNumber-29.
 //  Copyright (c) 2016年 Scuplt041pageNumber. All rights reserved.
 //
-#define  pageNumber 3
+
 #import "startOncePanel.h"
 #import "UIImage+StringImageNamed.h"
 #import "RootTabBar_C.h"
@@ -51,7 +51,10 @@
     startView.delegate=self;//代理
     CGFloat x=0,y=0,w=self.view.frame.size.width,h=self.view.frame.size.height;
     for (int i=0; i<pageNumber; i++) {
-        UIImage *myImage=    [UIImage imageWithNamed:[NSString stringWithFormat: @"new_feature_%d",i+1]];
+        UIImage *myImage=    [UIImage imageNamed:[NSString stringWithFormat: @"new_feature_%d",i+1]];
+        if([UIScreen mainScreen] .bounds.size.height>=568){
+            myImage=    [UIImage imageNamed:[NSString stringWithFormat: @"new_feature_%d-568h@2x",i+1]];
+        }
         UIImageView *images=[[UIImageView alloc] init];
         images.image=myImage;
         x=i*w;

@@ -8,9 +8,7 @@
 
 #import "myButtomButton.h"
 #import "myBadgeButton.h"
-#define picH_Ratio 0.7
-#define tabBarButtonTitleColor (iOS7 ? [UIColor blackColor] :[UIColor whiteColor])
-#define tabBarButtonTitleSelectColor (iOS7 ? myColor(234,103,7) :myColor(248,139,0))
+
 @interface myButtomButton()
 @property (nonatomic,weak) myBadgeButton *badgeButton;
 @end
