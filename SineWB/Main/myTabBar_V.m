@@ -33,8 +33,6 @@
     if(self){
         //设置 加号按钮
         UIButton *plugs= [[UIButton alloc ]init];
-        [self addSubview:plugs];
-        //plugs.backgroundColor=[UIColor redColor];
         
         [plugs setBackgroundImage:[UIImage imageWithNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [plugs setBackgroundImage:[UIImage imageWithNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
@@ -42,9 +40,18 @@
         [plugs setImage:[UIImage imageWithNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [plugs setImage:[UIImage imageWithNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
         plugs.bounds=CGRectMake(0,0, plugs.currentBackgroundImage.size.width, plugs.currentBackgroundImage.size.height);
+        [plugs addTarget:self action:@selector(plugsButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:plugs];
         self.buttonPlugs=plugs;
     }
     return self;
+}
+
+-(void)plugsButtonClick{
+    //使用model 弹出,,,要弹出 ,只能使用代理
+    if([self.delegate respondsToSelector:@selector(myTabBar_ClickPlugs:)]){
+        [self.delegate myTabBar_ClickPlugs:self];
+    }
 }
 
 -(void) loadViewShow:(UITabBarItem *)barItem{
@@ -65,8 +72,8 @@
 }
 
 -(void)ClickBottomShow:(myButtomButton *)myBtn{
-    if([self.delegate respondsToSelector:@selector(myTabBar_Delegate:and_From:and_To:)]){
-        [self.delegate myTabBar_Delegate:self and_From:(int)self.cacheButton.tag and_To:(int)myBtn.tag];
+    if([self.delegate respondsToSelector:@selector(myTabBar_ClickBottom:and_From:and_To:)]){
+        [self.delegate myTabBar_ClickBottom:self and_From:(int)self.cacheButton.tag and_To:(int)myBtn.tag];
     }
     
     self.cacheButton.selected=NO;

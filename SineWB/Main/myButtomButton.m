@@ -37,8 +37,8 @@
 -(CGRect)titleRectForContentRect:(CGRect)contentRect{
     CGFloat titleW=contentRect.size.width;
     CGFloat titleX=0;
-    CGFloat titleY=contentRect.size.height*picH_Ratio;
-    CGFloat titleH=contentRect.size.height-titleY;
+    CGFloat titleY=self.frame.size.height*0.7;
+    CGFloat titleH=self.frame.size.height-titleY;
     
     return  CGRectMake(titleX, titleY, titleW, titleH);
 }

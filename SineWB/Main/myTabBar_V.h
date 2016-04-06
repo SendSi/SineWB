@@ -10,8 +10,8 @@
 @class myTabBar_V;
 @protocol myTabBar_V_Delegate<NSObject>
 @optional
--(void)myTabBar_Delegate:(myTabBar_V *)myTabBar and_From:(int) froms and_To:(int )tos;
-
+-(void)myTabBar_ClickBottom:(myTabBar_V *)myTabBar and_From:(int) froms and_To:(int )tos;
+-(void)myTabBar_ClickPlugs:(myTabBar_V *)myTabBar ;
 
 @end
 

@@ -44,16 +44,22 @@
         [item setBackgroundImage:[UIImage imageWithNamed:@"navigationbar_button_background"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [item setBackgroundImage:[UIImage imageWithNamed:@"navigationbar_button_background_pushed"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
         [item setBackgroundImage:[UIImage imageWithNamed:@"navigationbar_button_background_disable"] forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-        
-        
-    }
+  }
+    
+    //设置文字属性  不能点击时的
+    NSMutableDictionary *dictNoEnable=[NSMutableDictionary dictionary];
+    dictNoEnable[NSForegroundColorAttributeName]=[UIColor lightGrayColor];
+    dictNoEnable[NSFontAttributeName]=[UIFont systemFontOfSize:14];
+    [item setTitleTextAttributes:dictNoEnable forState:UIControlStateDisabled];
+    
     //设置文字属性
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     dict[NSForegroundColorAttributeName]=iOS7?[UIColor orangeColor]:[UIColor grayColor];
     dict[NSFontAttributeName]=[UIFont systemFontOfSize:14];
-    
   //  dict[NSShadowAttributeName]=[NSValue valueWithUIOffset:UIOffsetZero];
     [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
+ 
 }
 
 /* 设置导航栏  */

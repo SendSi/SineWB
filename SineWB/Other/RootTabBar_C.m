@@ -14,6 +14,8 @@
 #import "UIImage+StringImageNamed.h"
 #import "myTabBar_V.h"
 #import "myNavigation_C.h"
+#import "myComposeView_C.h"
+
 
 @interface RootTabBar_C()<myTabBar_V_Delegate>
 @property (nonatomic ,strong) myTabBar_V *myTabBar_Vs;
@@ -34,8 +36,14 @@
     self.myTabBar_Vs=my_V;
     my_V.delegate=self;
 }
--(void)myTabBar_Delegate:(myTabBar_V *)myTabBar and_From:(int)froms and_To:(int)tos{
+#pragma  mark -代理ing
+-(void)myTabBar_ClickBottom:(myTabBar_V *)myTabBar and_From:(int)froms and_To:(int)tos{
     self.selectedIndex=tos;
+}
+-(void)myTabBar_ClickPlugs:(myTabBar_V *)myTabBar{
+    myComposeView_C  *coss=[[myComposeView_C alloc] init];
+    myNavigation_C *nav_C=[[myNavigation_C alloc ] initWithRootViewController:coss];
+    [self presentViewController:nav_C animated:YES completion:nil];
 }
 
 
