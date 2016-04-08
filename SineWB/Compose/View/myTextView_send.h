@@ -10,4 +10,8 @@
 /** 发 微博 页面的 文本框  */
 @interface myTextView_send : UITextView
 
+
+/**     提示文字   */
+@property (copy,nonatomic) NSString *placeholder;
+
 @end

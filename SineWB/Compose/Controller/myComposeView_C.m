@@ -12,6 +12,7 @@
 #import "getSetAccountTool.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "MBProgressHUD+MJ.h"
+#import "myNavigation_C.h"
 @interface myComposeView_C()
 /**    mytext         */
 @property (nonatomic,weak) myTextView_send    *sendText;
@@ -26,6 +27,8 @@
 -(void)createTextField{
     myTextView_send *sendText=[[myTextView_send alloc] init];
     sendText.frame=self.view.bounds;
+    
+    sendText.placeholder=@"分享新鲜事....";
     [self.view addSubview:sendText];
     self.sendText=sendText;;
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listerSend) name:UITextViewTextDidChangeNotification object:sendText];
