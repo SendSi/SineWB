@@ -90,6 +90,7 @@
 		13DC47081CAD74BD008209CA /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DC46F61CAD74BD008209CA /* UIImageView+HighlightedWebCache.m */; };
 		13DC47091CAD74BD008209CA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DC46F81CAD74BD008209CA /* UIImageView+WebCache.m */; };
 		13DC470A1CAD74BD008209CA /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DC46FA1CAD74BD008209CA /* UIView+WebCacheOperation.m */; };
+		13E41F9A1CB8071200201981 /* myCompose_Send_ToolBar_V.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41F991CB8071200201981 /* myCompose_Send_ToolBar_V.m */; };
 		13E9B51E1CA8058F000980B7 /* myTabBar_V.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9B51D1CA8058F000980B7 /* myTabBar_V.m */; };
 		13EEB1DE1CA7BFC2009BEE27 /* RootMeTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1DD1CA7BFC2009BEE27 /* RootMeTableView_C.m */; };
 		13EEB1E21CA7BFFE009BEE27 /* RootDiscoverTableView_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEB1E11CA7BFFE009BEE27 /* RootDiscoverTableView_C.m */; };
@@ -276,6 +277,8 @@
 		13DC46F81CAD74BD008209CA /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		13DC46F91CAD74BD008209CA /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		13DC46FA1CAD74BD008209CA /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		13E41F981CB8071200201981 /* myCompose_Send_ToolBar_V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCompose_Send_ToolBar_V.h; sourceTree = "<group>"; };
+		13E41F991CB8071200201981 /* myCompose_Send_ToolBar_V.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCompose_Send_ToolBar_V.m; sourceTree = "<group>"; };
 		13E9B51C1CA8058F000980B7 /* myTabBar_V.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTabBar_V.h; sourceTree = "<group>"; };
 		13E9B51D1CA8058F000980B7 /* myTabBar_V.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTabBar_V.m; sourceTree = "<group>"; };
 		13EEB1DC1CA7BFC2009BEE27 /* RootMeTableView_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootMeTableView_C.h; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 			children = (
 				13D9213F1CB5C671004D079B /* myTextView_send.h */,
 				13D921401CB5C671004D079B /* myTextView_send.m */,
+				13E41F981CB8071200201981 /* myCompose_Send_ToolBar_V.h */,
+				13E41F991CB8071200201981 /* myCompose_Send_ToolBar_V.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -904,6 +909,7 @@
 				135374DF1CAE1163001B3B44 /* MJMember.m in Sources */,
 				1313517B1CAC1B7500D81328 /* AFURLResponseSerialization.m in Sources */,
 				138F99891CB202C200CEED53 /* myStatus_ToolBar.m in Sources */,
+				13E41F9A1CB8071200201981 /* myCompose_Send_ToolBar_V.m in Sources */,
 				13F902331CA64C0B000A7F86 /* main.m in Sources */,
 				1313517A1CAC1B7500D81328 /* AFURLRequestSerialization.m in Sources */,
 				133B677A1CA8E6C90031AF5C /* myButtomButton.m in Sources */,

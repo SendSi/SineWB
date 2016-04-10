@@ -14,4 +14,6 @@
 /**     提示文字   */
 @property (copy,nonatomic) NSString *placeholder;
 
+/**     提示文字颜色    */
+@property (strong,nonatomic) UIColor *placeholderColor;
 @end
