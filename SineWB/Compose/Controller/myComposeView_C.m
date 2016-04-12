@@ -44,6 +44,15 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)sendClick{
+    if(self.showImage.image==nil){
+        [self ConnNonImage];//发送没图片的内容
+    }
+    else {
+        [self ConnImageAndText];
+    }
+ 
+}
+-(void)ConnNonImage{
     AFHTTPRequestOperationManager *mgr=[AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=[getSetAccountTool getAccount].access_token;
@@ -53,8 +62,31 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+-(void)ConnImageAndText{
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = self.sendText.text;
+    params[@"access_token"] = [getSetAccountTool getAccount].access_token;
+    
+    // 3.发送请求
+    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) { // 在发送请求之前调用这个block
+        // 必须在这里说明要上传哪些文件
+        NSData *data = UIImageJPEGRepresentation(self.showImage.image,1.0);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"发送失败"];
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 #pragma mark -textField 相关设置
